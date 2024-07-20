@@ -15,18 +15,25 @@ Quan-Minesweeper 是一个使用 `leptos` 和 `axum` 框架实现的扫雷 Web �
 
 Scoreboard data is tracked using sqlite, with the database file path specified in a .env file containing a DATABASE_URL environment variable. Once a file is created and DATABASE_URL is assigned, sqlx migrations will recreate the database.
 
-排行榜 (Scoreboard) 的数据存储使用 SQLite 数据库, 并且在包含 `DATABASE_URL` 环境变量的 .env 文件中指定了数据库文件路径. 项目中包含了 sqlx 迁移的代码, 一旦创建了一个 .env 文件并分配了 `DATABASE_URL`, 启动项目项目后, 系统将根据设定好的迁移脚本重新创建数据库表和结构, 以确保数据库结构与应用程序代码保持同步.
+排行榜 (Scoreboard) 的数据存储使用 SQLite 数据库, 并且在包含 `DATABASE_URL` 环境变量的 .env 文件中指定了数据库文件路径. 项目中包含了 sqlx 迁移的代码, 一旦创建了一个 .env 文件并分配了 `DATABASE_URL`, 并且在项目根目录下运行命令`sqlx migrate run`, 系统将根据设定好的迁移脚本重新创建数据库表和结构, 以确保数据库结构与应用程序代码保持同步.
 ## 项目启动
 - 安装 Rust 的夜间构建版本
     - `rustup toolchain install nightly`
     - 切换到夜间版本: `rustup default nightly`
     - 可用命令 `rustc --version` 查看是否切换成功
-- 添加WebAssembly (WASM) 目标, 以便将 Rust 代码编译成 WebAssembly 格式
+- 添加 WebAssembly (WASM) 目标, 以便将 Rust 代码编译成 WebAssembly 格式
     - `rustup target add wasm32-unknown-unknown`
 - 安装 Tailwind CSS (用于构建 GUI)
     - `npm install -D tailwindcss`
+- 安装 sqlx-cli
+    - `cargo install sqlx-cli`
 - 安装 leptos
     - `cargo install cargo-leptos`
+- 在项目根目录下创建 .env 文件并分配 `DATABASE_URL`
+    - 前提: 该数据库路径下已存在 sqlit 数据库文件, 若不存在, 则需要先创建 sqlit 文件, 指令如下:
+        - `sqlite3 "DATABASE_URL"` (参数为期望创建的数据库文件的路径)
+- 运行迁移脚本
+    - `sqlx migrate run`
 - 项目运行
     - `cargo leptos watch`
 - 在浏览器中打开网页: http://127.0.0.1:3000 或者 localhost:3000

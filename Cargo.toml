@@ -4,7 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [lib]
-name = "quan_minesweeper_lib"
+name = "quan_minesweeper"
 crate-type = ["cdylib", "rlib"]
 
 [dependencies]

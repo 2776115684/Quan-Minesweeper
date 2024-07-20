@@ -17,7 +17,7 @@ cfg_if::cfg_if! {
         use tower::ServiceExt;
         use tower_http::services::ServeDir;
 
-        use quan_minesweeper_lib::app::App;
+        use quan_minesweeper::app::App;
 
         // 定义应用状态结构体，包含Leptos选项和数据库连接池
         #[derive(FromRef, Debug, Clone)]
