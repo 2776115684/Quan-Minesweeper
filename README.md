@@ -1,0 +1,33 @@
+# Quan-Minesweeper
+
+## 项目介绍
+Quan-Minesweeper 是一个使用 `leptos` 和 `axum` 框架实现的扫雷 Web 应用程序, 运行本项目需要使用到 leptos 相关工具. 
+
+项目实现了扫雷游戏的基本功能, 设置了三种难度——easy normal hard, 设置了三种扫雷界面大小——small medium large. 并且使用 SQLite 数据库存储游戏排行榜, 显示各种模式下获胜玩家的用户名和用时. 此外, 项目还支持网页的深色模式/浅色模式切换.
+
+> leptos 是一个用于构建 Web 应用程序的 Rust 框架，它结合了服务器端渲染 (SSR) 和客户端渲染 (CSR) 的优势。
+
+> axum 是一个基于 tokio 和 hyper 的 Rust Web 框架，它提供了简洁的 API 和强大的路由系统。通过结合 leptos 和 axum，开发者可以轻松地构建出高性能的 Web 应用程序。
+
+- 本项目的 Web 服务器使用 Axum 框架处理 HTTP 请求, 并结合了 Leptos 框架进行前端渲染.
+
+- 本项目是使用 Leptos 提供的[模板](https://github.com/leptos-rs/start-axum)创建的.
+
+Scoreboard data is tracked using sqlite, with the database file path specified in a .env file containing a DATABASE_URL environment variable. Once a file is created and DATABASE_URL is assigned, sqlx migrations will recreate the database.
+
+排行榜 (Scoreboard) 的数据存储使用 SQLite 数据库, 并且在包含 `DATABASE_URL` 环境变量的 .env 文件中指定了数据库文件路径. 项目中包含了 sqlx 迁移的代码, 一旦创建了一个 .env 文件并分配了 `DATABASE_URL`, 启动项目项目后, 系统将根据设定好的迁移脚本重新创建数据库表和结构, 以确保数据库结构与应用程序代码保持同步.
+## 项目启动
+- 安装 Rust 的夜间构建版本
+    - `rustup toolchain install nightly`
+    - 切换到夜间版本: `rustup default nightly`
+    - 可用命令 `rustc --version` 查看是否切换成功
+- 添加WebAssembly (WASM) 目标, 以便将 Rust 代码编译成 WebAssembly 格式
+    - `rustup target add wasm32-unknown-unknown`
+- 安装 Tailwind CSS (用于构建 GUI)
+    - `npm install -D tailwindcss`
+- 安装 leptos
+    - `cargo install cargo-leptos`
+- 项目运行
+    - `cargo leptos watch`
+- 在浏览器中打开网页: http://127.0.0.1:3000 或者 localhost:3000
+- 进行游戏

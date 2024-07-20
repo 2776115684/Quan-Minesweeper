@@ -1,0 +1,199 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    @apply bg-slate-400/60 dark:bg-gray-800 text-center text-gray-800 dark:text-slate-300
+}
+
+.game-board {
+    @apply mt-20 mx-auto grid bg-gray-400 dark:bg-gray-600 border-4 border-solid border-gray-950 rounded-lg shadow-xl shadow-gray-600/60 dark:shadow-gray-950/60
+}
+
+.game-board .cleared {
+    @apply bg-gray-200 dark:bg-slate-400
+}
+
+.game-board .cell {
+    @apply border-2 border-solid border-gray-950 shadow-gray-500 dark:shadow-gray-700/60 shadow-inner
+}
+
+.game-board.large {
+    height: 600px;
+    width: 900px;
+}
+
+.game-board.medium {
+    height: 500px;
+    width: 750px;
+}
+
+.game-board.small {
+    height: 400px;
+    width: 600px;
+}
+
+.cell svg {
+    width: 35px;
+    height: 35px;
+    transform: translate(5px, 5px);
+    @apply absolute
+}
+
+.cell:not(.cleared):hover {
+    @apply cursor-pointer
+}
+
+.info {
+    @apply h-5 text-xl mt-8 mb-8 font-semibold text-gray-950 dark:text-slate-300
+}
+
+.btn {
+    @apply mt-3 inline-block font-semibold mx-3 text-white cursor-pointer [&>*]:cursor-pointer rounded-lg bg-sky-600 ring-1 ring-sky-600/5 shadow-lg shadow-gray-400 dark:shadow-gray-900 hover:bg-sky-700 hover:ring-sky-700
+}
+
+.btn a {
+    @apply p-2 inline-block
+}
+
+.btn input {
+    @apply p-2
+}
+
+.disabled {
+    @apply cursor-default hover:bg-sky-600 hover:ring-sky-600/5 hover:rounded-lg
+}
+
+.panel {
+    @apply mt-5 mb-5 inline-block p-5 rounded-xl text-xl text-black dark:text-slate-100 bg-sky-500/60 dark:bg-zinc-900 shadow-lg shadow-gray-400/60 dark:shadow-gray-900
+}
+
+.panel-label {
+    @apply mx-auto text-2xl font-semibold
+}
+
+.panel label {
+    @apply text-black dark:text-slate-100
+}
+
+.panel-table {
+    @apply mt-5 text-left
+}
+
+.panel-row {
+    @apply text-gray-800 dark:text-gray-800
+}
+
+.panel-row-label {
+    @apply mr-12 ml-2 my-2 block
+}
+
+.username-error-container {
+    @apply relative
+}
+
+.username-error {
+    @apply absolute left-56 -bottom-3 w-56 invisible opacity-0 z-10 px-3 py-2 text-sm font-medium bg-zinc-900 rounded-lg text-slate-100
+}
+
+.username-error::after {
+    content: " ";
+    border: solid 6px;
+    border-color: transparent rgb(24 24 27) transparent transparent;
+    @apply absolute top-1/2 right-full -mt-1
+}
+
+.panel-row select {
+    @apply w-3/4 text-center font-semibold mx-6 rounded-md border-none text-lg cursor-pointer
+}
+
+.panel-row input[type=text] {
+    @apply dark:bg-zinc-700 border-2 dark:border-zinc-500 dark:text-white border-black/40 text-center mx-6 rounded-md text-lg
+}
+
+.random-name {
+    @apply relative
+}
+
+.random-name svg {
+    @apply absolute -left-4 top-px w-6 dark:fill-slate-300 fill-zinc-800 cursor-pointer
+}
+
+.theme-toggle {
+    @apply fixed w-9 float-right top-5 right-8 cursor-pointer
+}
+
+.theme-toggle svg {
+    @apply dark:fill-slate-100
+}
+
+.cell.flagged svg {
+    @apply fill-gray-800 dark:fill-gray-900
+}
+
+.cell.mine svg {
+    @apply fill-black dark:fill-red-900
+}
+
+.cell.num-1 svg {
+    @apply fill-blue-600 dark:fill-blue-800
+}
+
+.cell.num-2 svg {
+    @apply fill-green-600 dark:fill-green-800
+}
+
+.cell.num-3 svg {
+    @apply fill-red-600 dark:fill-red-800
+}
+
+.cell.num-4 svg {
+    @apply fill-purple-600 dark:fill-purple-800
+}
+
+.cell.num-5 svg {
+    @apply fill-amber-600 dark:fill-amber-800
+}
+
+.cell.num-6 svg {
+    @apply fill-cyan-600 dark:fill-cyan-800
+}
+
+.cell.num-7 svg {
+    @apply fill-pink-600 dark:fill-pink-800
+}
+
+.cell.num-8 svg {
+    @apply fill-slate-600 dark:fill-slate-800
+}
+
+.scoreboard {
+    @apply my-8 w-1/3 mx-auto text-xl text-black dark:text-slate-100 bg-sky-500/60 dark:bg-zinc-800 shadow-lg shadow-gray-500/80 dark:shadow-gray-900 border-4 border-solid border-zinc-800 dark:border-zinc-950
+}
+
+.scoreboard .header {
+    @apply border-b-4 border-solid border-zinc-800 dark:border-zinc-950
+}
+
+.scoreboard .odd {
+    @apply bg-sky-500/40 dark:bg-zinc-900
+}
+
+.scoreboard td {
+    @apply font-normal
+}
+
+.scoreboard th,
+.scoreboard td {
+    @apply py-1 text-left
+}
+
+.scoreboard .n {
+    @apply pl-4
+}
+
+.scoreboard .name {}
+
+.scoreboard .time {
+    @apply text-center
+}
