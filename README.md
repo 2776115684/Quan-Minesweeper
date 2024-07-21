@@ -61,8 +61,8 @@ Scoreboard data is tracked using sqlite, with the database file path specified i
 - 进行游戏
 ## 运行效果
 - 主页面
-![alt text](images.assets\image-20240720202302475.png)
+![alt text](images.assets/image-20240720202302475.png)
 - 游戏界面
-![alt text](images.assets\image-20240720202352106.png)
+![alt text](images.assets/image-20240720202352106.png)
 - 排行榜
-![alt text](images.assets\image.png)
+![alt text](images.assets/image.png)
