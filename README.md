@@ -36,7 +36,7 @@ Scoreboard data is tracked using sqlite, with the database file path specified i
     - utils.rs: 包含一些工具函数
     - style/: 包含样式文件
     - svgs/: 包含 SVG 图标文件
-    - images.assets：存放 README 中的图片资源
+    - images.assets/：存放 README 中的图片资源
 ## 项目启动
 - 安装 Rust 的夜间构建版本
     - `rustup toolchain install nightly`
