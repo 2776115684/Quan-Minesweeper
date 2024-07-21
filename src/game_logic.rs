@@ -214,6 +214,7 @@ impl GameState {
         let (info, set_info) = create_signal(GameInfo::default());
         set_info.update(|info| info.clear_total = total - mines);
 
+        // 创建计时器
         let timer = create_action(move |&()| async move {
             for second in 0..i64::MAX {
                 let mut stop = false;
@@ -269,22 +270,24 @@ impl GameState {
         self.new_game_enabled
     }
 
-    // 开始游戏
+    // 开始游戏 (确保第一次点击的单元格及其周围区域不会包含地雷)
     fn start(&mut self, row: isize, column: isize) {
         self.timer.dispatch(());
 
         let mut rng = rand::thread_rng();
 
+        // 确保第一次点击及其相邻区域不包含地雷
         let exclude = Vec::from_iter(std::iter::once((0, 0)).chain(ADJACENTS).filter_map(
             |(row_offset, column_offset)| self.index(row + row_offset, column + column_offset),
         ));
 
+        // 随机生成地雷
         for _ in 0..self.mines {
             let cell_state = loop {
                 let index = rng.gen_range(0..self.rows * self.columns) as usize;
 
                 if exclude.contains(&index) {
-                    continue;
+                    continue; // 排除第一次点击及其相邻区域
                 }
 
                 let cell_state = self.cell_states.get_mut(index).expect("within bounds");
@@ -297,6 +300,7 @@ impl GameState {
             cell_state.kind = CellKind::Mine;
         }
 
+        // 计算每个单元格周围的地雷数量
         for row in 0..self.rows {
             for column in 0..self.columns {
                 if self
@@ -446,10 +450,12 @@ impl GameState {
                 ));
 
                 match cell_state.kind {
+                    // 如果是地雷，游戏结束
                     CellKind::Mine => {
                         self.status = GameStatus::GameOver;
                         return;
                     }
+                    // 如果是非地雷, 递归挖开相邻单元格
                     CellKind::Clear(0) => {
                         // 清除0的单元格时(当前单元格周围没有雷且被挖到)，递归清除相邻单元格
                         for (row_offset, column_offset) in ADJACENTS {

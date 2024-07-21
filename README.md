@@ -30,7 +30,7 @@ Scoreboard data is tracked using sqlite, with the database file path specified i
 - 安装 leptos
     - `cargo install cargo-leptos`
 - 在项目根目录下创建 .env 文件并分配 `DATABASE_URL`
-    - 前提: 该数据库路径下已存在 sqlit 数据库文件, 若不存在, 则需要先创建 sqlit 文件, 指令如下:
+    - 前提: 该数据库路径下已存在 sqlite 数据库文件, 若不存在, 则需要先创建 sqlite 文件, 指令如下:
         - `sqlite3 "DATABASE_URL"` (参数为期望创建的数据库文件的路径)
 - 运行迁移脚本
     - `sqlx migrate run`
