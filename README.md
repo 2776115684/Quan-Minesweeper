@@ -36,6 +36,7 @@ Scoreboard data is tracked using sqlite, with the database file path specified i
     - utils.rs: 包含一些工具函数
     - style/: 包含样式文件
     - svgs/: 包含 SVG 图标文件
+    - images.assets：存放 README 中的图片资源
 ## 项目启动
 - 安装 Rust 的夜间构建版本
     - `rustup toolchain install nightly`
@@ -58,3 +59,10 @@ Scoreboard data is tracked using sqlite, with the database file path specified i
     - `cargo leptos watch`
 - 在浏览器中打开网页: http://127.0.0.1:3000 或者 localhost:3000
 - 进行游戏
+## 运行效果
+- 主页面
+![alt text](images.assets\image-20240720202302475.png)
+- 游戏界面
+![alt text](images.assets\image-20240720202352106.png)
+- 排行榜
+![alt text](images.assets\image.png)
